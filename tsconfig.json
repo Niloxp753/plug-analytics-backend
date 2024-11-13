@@ -16,6 +16,19 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
-  }
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      ".prisma/*": [
+        "./.prisma/*"
+      ]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "src/prisma/generated/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }

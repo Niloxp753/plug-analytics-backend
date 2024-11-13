@@ -6,10 +6,11 @@
   "private": true,
   "license": "UNLICENSED",
   "scripts": {
-    "build": "nest build",
+    "generate": "npx prisma generate --schema=./src/prisma/schemas/schema.online.prisma && npx prisma generate --schema=./src/prisma/schemas/schema.local1.prisma",
+    "build": "npm run generate && tsc",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",
-    "start": "nest start",
-    "start:dev": "nest start --watch",
+    "start": "node dist/main.js",
+    "start:dev": "nodemon --exec ts-node -r tsconfig-paths/register src/main.ts",
     "start:debug": "nest start --debug --watch",
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
@@ -28,6 +29,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@prisma/client": "^5.22.0",
     "graphql": "^16.9.0",
+    "nodemon": "^3.1.7",
     "reflect-metadata": "^0.2.0",
     "rxjs": "^7.8.1"
   },
