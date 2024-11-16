@@ -18,6 +18,11 @@ export class UsersResolver {
     return this.usersService.findOne(id);
   }
 
+  @Query(() => User, { name: 'user' })
+  findByEmail(@Args('email', { type: () => String }) email: string) {
+    return this.usersService.findByEmail(email);
+  }
+
   @Mutation(() => User)
   createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
     return this.usersService.create(createUserInput);
